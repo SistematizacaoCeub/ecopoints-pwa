@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2E7D32">
+  <title>🌱 EcoPoints Brasília - Pontos de Coleta</title>
+  <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkVjb1BvaW50cyBCcmFzw61saWEgLSBQb250b3MgZGUgQ29sZXRhIiwKICAic2hvcnRfbmFtZSI6ICJFY29Qb2ludHMgQnJhc8OtbGlhIiwKICAiZGVzY3JpcHRpb24iOiAiRW5jb250cmUgcG9udG9zIGRlIGNvbGV0YSBzZWxldGl2YSBlbSBCcmFzw61saWEgLSBPREMgMTIiLAogICJzdGFydF91cmwiICIvIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMmE5ZDhmIiwKICAidGhlbWVfY29sb3IiOiAiIzJhOWQ4ZiIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIWnBaWGRDYjNnOUlqQWdNQ0F6TlRBZ016VXdJajRLSUNBZ0lEeG5JR2xrUFNKbk5UZzJJaUI0Yld4dWN6cHVkV3hzUFNKamNtVmhkR1VpSUdacGJHdzlJbTV2Ym1VaUlIWnBaWGRDYjNnOUlqQWdNQ0F6TlRBZ016VXdJajRLSUNBZ0lEeG5JR2xrUFNKbk5UZzJJaUI0Yld4dWN6cHVkV3hzUFNKamNtVmhkR1VpSUdacGJHdzlJbTV2Ym1VaUlIWnBaWGRDYjNnOUlqQWdNQ0F6TlRBZ016VXdJajRLSUNBZ0lEeG5JR2xrUFNKbk5UZzJJaUI0Yld4dWN6cHVkV3hzUFNKamNtVmhkR1VpTHo0S0lDQWdJRHhuSUdsa1BTSm5OVGcySWlCNGJXeHVjenB1ZFd4c1BTSmpjbVZoZEdVaUlHWnBiR3c5SW01dmJtVWlJSFpwWlhkQ2IzZzlJakFnTUNBek5UQWdNelV3SWo0S0lDQWdJRHhuSUdsa1BTSm5OVGcySWlCNGJXeHVjenB1ZFd4c1BTSmpjbVZoZEdVaUlHWnBiR3c5SW01dmJtVWlQejRLSUNBZ0lEd3ZaejRLUEM5emRtYytQSE4wYjNBZ0lDQWdkMmxrZEdnOUlqRTNJajQ4TDNOMGIzQStQQzl6ZG1jKyIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0KICBdCn0=">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f9e9 0%, #d8f3dc 100%);
+      color: #264653;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      position: relative;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #2a9d8f;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #2a9d8f;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #264653;
+      margin-bottom: 20px;
+    }
+
+    .app-description {
+      background: #e9f5db;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      border-left: 4px solid #2a9d8f;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .action-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e9f5db;
+    }
+
+    .action-card h2 {
+      color: #2a9d8f;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    button {
+      background: #2a9d8f;
+      color: white;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: #21867a;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(42, 157, 143, 0.3);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    #findPoints {
+      background: #e76f51;
+      margin-top: 15px;
+    }
+
+    #findPoints:hover {
+      background: #d45a3c;
+      box-shadow: 0 5px 15px rgba(231, 111, 81, 0.3);
+    }
+
+    #results {
+      margin-top: 20px;
+    }
+
+    .point-card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-left: 4px solid #2a9d8f;
+      transition: transform 0.2s ease;
+    }
+
+    .point-card:hover {
+      transform: translateX(5px);
+      background: #e9f5db;
+    }
+
+    .point-card h3 {
+      color: #264653;
+      margin-bottom: 8px;
+    }
+
+    .point-card p {
+      color: #6c757d;
+      margin-bottom: 12px;
+    }
+
+    .point-card button {
+      background: #f4a261;
+      font-size: 0.9rem;
+      padding: 8px 16px;
+    }
+
+    .point-card button:hover {
+      background: #e76f51;
+      box-shadow: 0 5px 10px rgba(244, 162, 97, 0.3);
+    }
+
+    .install-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2a9d8f;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .install-btn:hover {
+      transform: scale(1.1);
+      background: #21867a;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e9c46a;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+        border-radius: 15px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .action-card {
+        padding: 20px;
+      }
+    }
+
+    .loading {
+      text-align: center;
+      padding: 20px;
+      color: #6c757d;
+    }
+
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'liga';
+    }
+
+    .location-badge {
+      background: #2a9d8f;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    .install-instructions {
+      background: #e3f2fd;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      border-left: 4px solid #2196f3;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🌱 EcoPoints</h1>
+    <p class="subtitle">Pontos de Coleta em Brasília</p>
+    <div class="location-badge">📍 Localização: Brasília, DF</div>
+  </header>
+
+  <div class="app-description">
+    <p>Este aplicativo ajuda você a encontrar pontos de coleta seletiva em Brasília, contribuindo para um meio ambiente mais sustentável e atendendo aos Objetivos de Desenvolvimento Sustentável (ODS 12).</p>
+  </div>
+
+  <div class="main-content">
+    <div class="action-card">
+      <h2>📍 Pontos de Coleta em Brasília</h2>
+      <p>Clique no botão abaixo para encontrar pontos de coleta próximos em Brasília.</p>
+      <button id="findPoints">
+        <span class="material-icons">my_location</span>
+        Buscar Pontos em Brasília
+      </button>
+
+      <div id="results">
+        <div class="loading" id="loading" style="display: none;">
+          <p>Buscando pontos de coleta em Brasília...</p>
+        </div>
+        <div id="pointsList"></div>
+      </div>
+    </div>
+
+    <div class="action-card">
+      <h2>📋 Sobre o Projeto</h2>
+      <p>Este é um Progressive Web App (PWA) desenvolvido para facilitar o descarte correto de resíduos em Brasília. Você pode instalá-lo no seu dispositivo para acesso rápido.</p>
+      <p><strong>ODS 12:</strong> Consumo e produção responsáveis</p>
+      <p><strong>Tecnologia:</strong> PWA (Progressive Web App)</p>
+
+      <div class="install-instructions">
+        <h3>💡 Como Instalar:</h3>
+        <p><strong>Chrome/Edge:</strong> Menu (⋯) → "Instalar EcoPoints"</p>
+        <p><strong>Android Chrome:</strong> Menu → "Adicionar à tela inicial"</p>
+        <p><strong>Safari (iOS):</strong> Compartilhar (⎋) → "Adicionar à tela inicial"</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>EcoPoints Brasília - Desenvolvido para um futuro sustentável 🌍</p>
+  </footer>
+</div>
+
+<button class="install-btn" id="installButton" style="display: none;" title="Instalar App">📲</button>
+
+<script>
+  // Dados simulados de pontos de coleta em BRASÍLIA
+  const collectionPoints = [
+    {
+      id: 1,
+      name: "Ecoponto da Asa Sul",
+      distance: "2.3km",
+      address: "CLS 403, Bloco B - Asa Sul",
+      materials: ["Papel", "Plástico", "Vidro", "Metal"],
+      phone: "(61) 3344-5566"
+    },
+    {
+      id: 2,
+      name: "Coleta Seletiva do Parque da Cidade",
+      distance: "5.1km",
+      address: "Estação Parque da Cidade - Brasília",
+      materials: ["Plástico", "Vidro", "Orgânicos", "Eletrônicos"],
+      phone: "(61) 3345-6789"
+    },
+    {
+      id: 3,
+      name: "Posto de Reciclagem do Guará",
+      distance: "8.7km",
+      address: "QE 11 - Guará I",
+      materials: ["Eletrônicos", "Pilhas", "Metal", "Papel", "Óleo"],
+      phone: "(61) 3389-1234"
+    },
+    {
+      id: 4,
+      name: "EcoEstação Taguatinga",
+      distance: "12.4km",
+      address: "Centro de Taguatinga - QNB 12",
+      materials: ["Óleo de Cozinha", "Vidro", "Plástico", "Baterias"],
+      phone: "(61) 3356-9876"
+    },
+    {
+      id: 5,
+      name: "Reciclagem do Lago Sul",
+      distance: "4.2km",
+      address: "SHIS QI 13 - Lago Sul",
+      materials: ["Vidro", "Papel", "Plástico", "Metais", "Eletrônicos"],
+      phone: "(61) 3248-5532"
+    }
+  ];
+
+  // Elementos DOM
+  const findPointsButton = document.getElementById('findPoints');
+  const pointsList = document.getElementById('pointsList');
+  const loading = document.getElementById('loading');
+  const installButton = document.getElementById('installButton');
+
+  // Buscar pontos de coleta
+  findPointsButton.addEventListener('click', () => {
+    loading.style.display = 'block';
+    pointsList.innerHTML = '';
+
+    // Simular busca com pontos de Brasília
+    setTimeout(() => {
+      loading.style.display = 'none';
+      displayResults(collectionPoints);
+    }, 1500);
+  });
+
+  // Exibir resultados
+  function displayResults(points) {
+    pointsList.innerHTML = '<h3>Pontos de Coleta em Brasília:</h3>';
+
+    points.forEach(point => {
+      const materialsList = point.materials.map(m => `<span class="material-tag">${m}</span>`).join('');
+
+      pointsList.innerHTML += `
+          <div class="point-card">
+            <h3>${point.name}</h3>
+            <p>📏 <strong>Distância:</strong> ${point.distance}</p>
+            <p>📍 <strong>Endereço:</strong> ${point.address}</p>
+            <p>📞 <strong>Telefone:</strong> ${point.phone}</p>
+            <p>🗑️ <strong>Materiais aceitos:</strong> ${materialsList}</p>
+            <button onclick="showDirections(${point.id})">
+              <span class="material-icons">directions</span>
+              Ver Rota
+            </button>
+          </div>
+        `;
+    });
+  }
+
+  // Simular direções
+  function showDirections(pointId) {
+    const point = collectionPoints.find(p => p.id === pointId);
+    alert(`Iniciando rota para: ${point.name}\nEndereço: ${point.address}`);
+  }
+
+  // ===== PWA INSTALLATION =====
+  let deferredPrompt;
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('beforeinstallprompt event fired');
+    e.preventDefault();
+    deferredPrompt = e;
+    installButton.style.display = 'block';
+
+    // Mostrar instruções após 2 segundos
+    setTimeout(() => {
+      alert('📱 Agora você pode instalar o EcoPoints no seu dispositivo! Clique no botão "📲" no canto inferior direito.');
+    }, 2000);
+  });
+
+  installButton.addEventListener('click', async () => {
+    console.log('Install button clicked');
+    if (!deferredPrompt) {
+      alert('Recurso de instalação não disponível. Tente usar Chrome ou Edge no Android.');
+      return;
+    }
+
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+
+    console.log(`User response to install: ${outcome}`);
+
+    if (outcome === 'accepted') {
+      installButton.style.display = 'none';
+      alert('✅ EcoPoints instalado com sucesso! Agora você pode acessá-lo diretamente pela tela inicial.');
+    } else {
+      alert('Instalação cancelada. Você pode instalar posteriormente clicando no botão "📲".');
+    }
+
+    deferredPrompt = null;
+  });
+
+  // Service Worker Registration
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      // Registrar service worker inline
+      const swContent = `
+          self.addEventListener('install', (event) => {
+            console.log('Service Worker installing...');
+            self.skipWaiting();
+          });
+
+          self.addEventListener('activate', (event) => {
+            console.log('Service Worker activating...');
+          });
+
+          self.addEventListener('fetch', (event) => {
+            // Pode ser vazio para estáticos
+          });
+        `;
+
+      const blob = new Blob([swContent], { type: 'application/javascript' });
+      const swURL = URL.createObjectURL(blob);
+
+      navigator.serviceWorker.register(swURL)
+        .then(registration => {
+          console.log('SW registered: ', registration);
+        })
+        .catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
+        });
+    });
+  }
+
+  // Adicionar tags de estilo para os materiais
+  const style = document.createElement('style');
+  style.textContent = `
+      .material-tag {
+        display: inline-block;
+        background: #2a9d8f;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        margin: 2px;
+      }
+
+      .material-icons {
+        vertical-align: middle;
+      }
+    `;
+  document.head.appendChild(style);
+</script>
+</body>
+</html>
